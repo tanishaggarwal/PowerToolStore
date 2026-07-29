@@ -1,3 +1,14 @@
 spring:
   application:
     name: PowerToolStore
+
+  datasource:
+    url: jdbc:postgresql://ep-old-morning-aurvwmgx-pooler.c-10.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+    username: neondb_owner
+    password: npg_XG0xDJ1nENoS
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true

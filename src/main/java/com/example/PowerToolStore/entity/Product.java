@@ -1,10 +1,9 @@
 package com.example.PowerToolStore.entity;
 
+import com.example.PowerToolStore.exception.InsufficientStockException;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.URL;
@@ -15,43 +14,44 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+@Builder
 @Table(name="products")
+@AllArgsConstructor
 public class Product {
     @Setter(AccessLevel.NONE)
-    @NotNull
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long productId;
 
-    @NotNull
+//    @NotNull
 //    @Column(nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="category_id", nullable = false)
     private Category category;
 
-    @NotNull
+//    @NotNull
     @Column(nullable = false)
     private String brand;
 
-    @NotNull
+//    @NotNull
     @Column(nullable = false)
     private String title;
 
     private String description;
 
-    @NotNull
-    @URL
+//    @NotNull
+//    @URL
     @Column(nullable = false)
     private String imageUrl;
 
-    @NotNull
-    @Column(scale = 2, nullable = false)
+//    @NotNull
+//    @Column(scale = 2, nullable = false)
     @DecimalMin("0.0")
     private BigDecimal maxRetailPrice;
 
-    @NotNull
-    @DecimalMin("0.00")
-    @DecimalMax("100.00")
+//    @NotNull
+//    @DecimalMin("0.00")
+//    @DecimalMax("100.00")
     @Column(scale = 2, nullable = false)
     private BigDecimal discountPercent;
 
@@ -64,18 +64,28 @@ public class Product {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    @NotNull
+//    @NotNull
     @Column(nullable = false)
-    @Min(0)
+//    @Min(0)
     private Integer quantityInStock;
 
-    @NotNull
+//    @NotNull
     @Column(nullable = false)
     private Boolean isActive;
 
-    protected Product(){
-        this.discountPercent = new BigDecimal("0.0");
-        this.isActive = true;
-    };
+    protected Product(){};
 
+    public void increaseStock( int quantity)
+    {
+        this.quantityInStock+= quantity;
+    }
+
+    public void decreaseStock( int quantity)
+    {
+        if (this.quantityInStock < quantity)
+        {
+            throw new InsufficientStockException(this.productId);
+        }
+        this.quantityInStock-=quantity;
+    }
 }

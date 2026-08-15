@@ -23,35 +23,24 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long productId;
 
-//    @NotNull
-//    @Column(nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="category_id", nullable = false)
     private Category category;
 
-//    @NotNull
     @Column(nullable = false)
     private String brand;
 
-//    @NotNull
     @Column(nullable = false)
     private String title;
 
     private String description;
 
-//    @NotNull
-//    @URL
     @Column(nullable = false)
     private String imageUrl;
 
-//    @NotNull
-//    @Column(scale = 2, nullable = false)
     @DecimalMin("0.0")
     private BigDecimal maxRetailPrice;
 
-//    @NotNull
-//    @DecimalMin("0.00")
-//    @DecimalMax("100.00")
     @Column(scale = 2, nullable = false)
     private BigDecimal discountPercent;
 
@@ -64,12 +53,9 @@ public class Product {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-//    @NotNull
     @Column(nullable = false)
-//    @Min(0)
     private Integer quantityInStock;
 
-//    @NotNull
     @Column(nullable = false)
     private Boolean isActive;
 

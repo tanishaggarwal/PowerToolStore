@@ -11,7 +11,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter
 public class CategoryUpdateRequest {
     @Setter(AccessLevel.NONE)
     @NotNull

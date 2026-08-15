@@ -15,7 +15,6 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Getter
-@Setter
 public class ProductCreateRequest {
 
     @NotNull
@@ -31,8 +30,6 @@ public class ProductCreateRequest {
 
     @NotNull
     private MultipartFile file;
-//    @URL
-//    private String imageUrl;
 
     @NotNull
     @DecimalMin("0.0")

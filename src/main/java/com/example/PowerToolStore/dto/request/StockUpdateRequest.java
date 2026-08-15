@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter
 public class StockUpdateRequest {
     @NotNull
     private Long productId;

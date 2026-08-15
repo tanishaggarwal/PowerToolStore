@@ -25,8 +25,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-// TO DO :- remove try catch and simply throw exceptions and
+// TO DO :- 1 - remove try catch and simply throw exceptions and
 // catch it as part of GlobalExceptionHandler (A single place for entire application's exception handling)
+
+// 2 - create a method to allow product image change
+
+// 3 - implement something to enable/disable a product based on stock in inventory
 
 @Service
 @Slf4j

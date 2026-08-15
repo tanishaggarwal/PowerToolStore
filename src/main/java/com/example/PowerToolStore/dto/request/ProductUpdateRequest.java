@@ -8,7 +8,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 
-@Setter
 @Getter
 public class ProductUpdateRequest {
     @NotNull

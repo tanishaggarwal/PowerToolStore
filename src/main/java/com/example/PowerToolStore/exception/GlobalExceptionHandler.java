@@ -1,5 +1,6 @@
 package com.example.PowerToolStore.exception;
 
+import com.example.PowerToolStore.constant.MdcConstant;
 import com.example.PowerToolStore.dto.response.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
@@ -14,13 +15,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(exception = {CategoryNotFoundException.class, ProductNotFoundException.class})
+    @ExceptionHandler(exception = {CategoryNotFoundException.class, ProductNotFoundException.class,
+    UserNotFoundException.class, AddressNotFoundException.class})
     public ResponseEntity<ErrorResponse> resourceNotFoundException( RuntimeException e)
     {
         log.warn("{}", e.toString(), e);
 
         return new ResponseEntity<>(
-                buildErrorResponse(MDC.get("requestId"), e),
+                buildErrorResponse(MDC.get(MdcConstant.REQUEST_ID), e),
                 HttpStatus.NOT_FOUND
         );
     }
@@ -31,7 +33,7 @@ public class GlobalExceptionHandler {
         log.error("{}", e.toString(), e);
 
         return new ResponseEntity<>(
-                buildErrorResponse(MDC.get("requestId"), e),
+                buildErrorResponse(MDC.get(MdcConstant.REQUEST_ID), e),
                 HttpStatus.INTERNAL_SERVER_ERROR
         );
     }
@@ -42,7 +44,7 @@ public class GlobalExceptionHandler {
         log.error("{}", e.toString(), e);
 
         return new ResponseEntity<>(
-                buildErrorResponse(MDC.get("requestId"), e),
+                buildErrorResponse(MDC.get(MdcConstant.REQUEST_ID), e),
                 HttpStatus.CONFLICT
         );
     }
@@ -55,7 +57,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(
                 ErrorResponse.builder()
                         .message("An unexpected error occurred")
-                        .requestId(MDC.get("requestId"))
+                        .requestId(MDC.get(MdcConstant.REQUEST_ID))
                         .build(),
                 HttpStatus.INTERNAL_SERVER_ERROR
         );

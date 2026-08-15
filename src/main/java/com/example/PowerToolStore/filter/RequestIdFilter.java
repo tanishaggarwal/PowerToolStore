@@ -1,5 +1,6 @@
 package com.example.PowerToolStore.filter;
 
+import com.example.PowerToolStore.constant.MdcConstant;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,13 +18,13 @@ public class RequestIdFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
         String requestId = UUID.randomUUID().toString();
-        MDC.put("requestId", requestId);
+        MDC.put(MdcConstant.REQUEST_ID, requestId);
         try
         {
             filterChain.doFilter(request, response);
         }
         finally {
-            MDC.remove("requestId");
+            MDC.remove(MdcConstant.REQUEST_ID);
         }
     }
 }

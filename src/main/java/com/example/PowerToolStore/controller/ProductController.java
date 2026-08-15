@@ -1,5 +1,6 @@
 package com.example.PowerToolStore.controller;
 
+import com.example.PowerToolStore.constant.MdcConstant;
 import com.example.PowerToolStore.dto.request.ProductCreateRequest;
 import com.example.PowerToolStore.dto.request.ProductStatusUpdateRequest;
 import com.example.PowerToolStore.dto.request.ProductUpdateRequest;
@@ -34,7 +35,7 @@ public class ProductController {
         return new ResponseEntity<>(
                 ApiResponse.<GenericResponse>builder()
                         .data(GenericResponse.builder().message("Product Created Successfully").build())
-                        .requestId(MDC.get("requestId"))
+                        .requestId(MDC.get(MdcConstant.REQUEST_ID))
                         .build()
                 , HttpStatus.CREATED);
     }
@@ -48,7 +49,7 @@ public class ProductController {
         return new ResponseEntity<>(
                 ApiResponse.<GenericResponse>builder()
                         .data(GenericResponse.builder().message("Product Details Updated Successfully").build())
-                        .requestId(MDC.get("requestId"))
+                        .requestId(MDC.get(MdcConstant.REQUEST_ID))
                         .build(),
                 HttpStatus.OK);
     }
@@ -62,7 +63,7 @@ public class ProductController {
         return new ResponseEntity<>(
                 ApiResponse.<GenericResponse>builder()
                         .data(GenericResponse.builder().message("Product Status Updated Successfully").build())
-                        .requestId(MDC.get("requestId"))
+                        .requestId(MDC.get(MdcConstant.REQUEST_ID))
                         .build()
                 ,HttpStatus.OK);
     }
@@ -75,7 +76,7 @@ public class ProductController {
         return new ResponseEntity<>(
                 ApiResponse.<GenericResponse>builder()
                         .data(GenericResponse.builder().message("Stock updated successfully").build())
-                        .requestId(MDC.get("requestId"))
+                        .requestId(MDC.get(MdcConstant.REQUEST_ID))
                         .build()
                 , HttpStatus.OK);
     }
@@ -86,7 +87,7 @@ public class ProductController {
         return new ResponseEntity<>(
                 ApiResponse.<ProductResponse>builder()
                         .data(productService.findByProductId(id))
-                        .requestId(MDC.get("requestId"))
+                        .requestId(MDC.get(MdcConstant.REQUEST_ID))
                         .build(),
                 HttpStatus.OK);
     }
@@ -97,7 +98,7 @@ public class ProductController {
         return new ResponseEntity<>(
                 ApiResponse.<List<ProductResponse>>builder()
                         .data(productService.findAllProducts())
-                        .requestId(MDC.get("requestId"))
+                        .requestId(MDC.get(MdcConstant.REQUEST_ID))
                         .build(),
                 HttpStatus.OK);
     }

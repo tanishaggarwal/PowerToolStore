@@ -1,5 +1,6 @@
 package com.example.PowerToolStore.controller;
 
+import com.example.PowerToolStore.constant.MdcConstant;
 import com.example.PowerToolStore.dto.request.CategoryCreateRequest;
 import com.example.PowerToolStore.dto.request.CategoryUpdateRequest;
 import com.example.PowerToolStore.dto.response.CategoryResponse;
@@ -30,7 +31,7 @@ public class CategoryController {
         return new ResponseEntity<>(
                 ApiResponse.<CategoryResponse>builder()
                         .data(categoryService.findById(id))
-                        .requestId(MDC.get("requestId"))
+                        .requestId(MDC.get(MdcConstant.REQUEST_ID))
                         .build(),
                 HttpStatus.OK);
     }
@@ -41,7 +42,7 @@ public class CategoryController {
         return new ResponseEntity<>(
                 ApiResponse.<List<CategoryResponse>>builder()
                         .data(categoryService.findAllCategories())
-                        .requestId(MDC.get("requestId"))
+                        .requestId(MDC.get(MdcConstant.REQUEST_ID))
                         .build()
                 ,
                 HttpStatus.OK
@@ -57,7 +58,7 @@ public class CategoryController {
         return new ResponseEntity<>(
                 ApiResponse.<GenericResponse>builder()
                         .data(GenericResponse.builder().message("Category Created Successfully").build())
-                        .requestId(MDC.get("requestId"))
+                        .requestId(MDC.get(MdcConstant.REQUEST_ID))
                         .build()
                 , HttpStatus.CREATED);
     }
@@ -70,7 +71,7 @@ public class CategoryController {
         categoryService.updateCategory(request);
         return new ResponseEntity<>(ApiResponse.<GenericResponse>builder()
                     .data(GenericResponse.builder().message("Category Updated Successfully").build())
-                    .requestId(MDC.get("requestId"))
+                    .requestId(MDC.get(MdcConstant.REQUEST_ID))
                     .build(),
                 HttpStatus.OK);
     }

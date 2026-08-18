@@ -11,6 +11,7 @@ import com.example.PowerToolStore.exception.UserNotFoundException;
 import com.example.PowerToolStore.mapper.AddressMapper;
 import com.example.PowerToolStore.repository.AddressRepository;
 import com.example.PowerToolStore.repository.UserRepository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
@@ -19,6 +20,7 @@ import java.util.Optional;
 
 // ASSUMPTIONS - ONLY ONE ADDRESS PER USER
 
+@Service
 public class AddressService {
 
     private final AddressRepository addressRepository;
@@ -49,13 +51,19 @@ public class AddressService {
     @Transactional
     public AddressResponse findByUserId(Long userId)
     {
-        Optional<Address> address = addressRepository.findByUserId(userId);
-        if(address.isPresent())
-        {
-            return addressMapper.toResponse(address.get());
+        Optional<User> user = userRepository.findById(userId);
+
+        if(user.isPresent()) {
+            Optional<Address> address = addressRepository.findByUser(user.get());
+            if (address.isPresent()) {
+                return addressMapper.toResponse(address.get());
+            } else {
+                throw new AddressNotFoundException("userId", userId);
+            }
         }
-        else {
-            throw new AddressNotFoundException("userId", userId);
+        else
+        {
+            throw new UserNotFoundException(userId);
         }
     }
 

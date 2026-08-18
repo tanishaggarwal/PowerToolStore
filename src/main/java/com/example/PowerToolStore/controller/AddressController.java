@@ -50,10 +50,10 @@ public class AddressController {
     };
 
     @GetMapping("/{userId}")
-    public ResponseEntity<ApiResponse<AddressResponse>> getAddress(@PathVariable Long userid){
+    public ResponseEntity<ApiResponse<AddressResponse>> getAddress(@PathVariable Long userId){
         return new ResponseEntity<>(
                 ApiResponse.<AddressResponse>builder()
-                        .data(addressService.findByUserId(userid))
+                        .data(addressService.findByUserId(userId))
                         .requestId(MDC.get(MdcConstant.REQUEST_ID))
                         .build(),
                 HttpStatus.OK);

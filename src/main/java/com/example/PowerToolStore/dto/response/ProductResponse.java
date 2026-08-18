@@ -45,8 +45,6 @@ public class ProductResponse {
 
     private LocalDateTime createdAt;
 
-//    private LocalDateTime updatedAt;
-
     @Min(0)
     private Integer quantityInStock;
 

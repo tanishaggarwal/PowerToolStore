@@ -1,8 +1,8 @@
 package com.example.PowerToolStore.mapper;
 
-import com.example.PowerToolStore.dto.request.ProductCreateRequest;
-import com.example.PowerToolStore.dto.request.ProductStatusUpdateRequest;
-import com.example.PowerToolStore.dto.request.ProductUpdateRequest;
+import com.example.PowerToolStore.dto.request.product.ProductCreateRequest;
+import com.example.PowerToolStore.dto.request.product.ProductStatusUpdateRequest;
+import com.example.PowerToolStore.dto.request.product.ProductUpdateRequest;
 import com.example.PowerToolStore.dto.response.ProductResponse;
 import com.example.PowerToolStore.entity.Category;
 import com.example.PowerToolStore.entity.Product;

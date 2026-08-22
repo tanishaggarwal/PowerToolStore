@@ -1,17 +1,15 @@
 package com.example.PowerToolStore.controller;
 
 import com.example.PowerToolStore.constant.MdcConstant;
-import com.example.PowerToolStore.dto.request.UserCreateRequest;
-import com.example.PowerToolStore.dto.request.UserDetailsUpdateRequest;
-import com.example.PowerToolStore.dto.request.UserRoleUpdateRequest;
+import com.example.PowerToolStore.dto.request.user.UserCreateRequest;
+import com.example.PowerToolStore.dto.request.user.UserDetailsUpdateRequest;
+import com.example.PowerToolStore.dto.request.user.UserRoleUpdateRequest;
 import com.example.PowerToolStore.dto.response.ApiResponse;
 import com.example.PowerToolStore.dto.response.UserResponse;
-import com.example.PowerToolStore.entity.User;
 import com.example.PowerToolStore.service.UserService;
 import jakarta.validation.Valid;
 import org.slf4j.MDC;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

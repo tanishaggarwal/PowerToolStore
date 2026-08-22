@@ -1,8 +1,8 @@
 package com.example.PowerToolStore.controller;
 
 import com.example.PowerToolStore.constant.MdcConstant;
-import com.example.PowerToolStore.dto.request.AddressCreateRequest;
-import com.example.PowerToolStore.dto.request.AddressUpdateRequest;
+import com.example.PowerToolStore.dto.request.address.AddressCreateRequest;
+import com.example.PowerToolStore.dto.request.address.AddressUpdateRequest;
 import com.example.PowerToolStore.dto.response.AddressResponse;
 import com.example.PowerToolStore.dto.response.ApiResponse;
 import com.example.PowerToolStore.service.AddressService;

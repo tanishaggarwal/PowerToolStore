@@ -1,8 +1,8 @@
 package com.example.PowerToolStore.service;
 
-import com.example.PowerToolStore.dto.request.UserCreateRequest;
-import com.example.PowerToolStore.dto.request.UserDetailsUpdateRequest;
-import com.example.PowerToolStore.dto.request.UserRoleUpdateRequest;
+import com.example.PowerToolStore.dto.request.user.UserCreateRequest;
+import com.example.PowerToolStore.dto.request.user.UserDetailsUpdateRequest;
+import com.example.PowerToolStore.dto.request.user.UserRoleUpdateRequest;
 import com.example.PowerToolStore.dto.response.UserResponse;
 import com.example.PowerToolStore.entity.User;
 import com.example.PowerToolStore.exception.UserNotFoundException;

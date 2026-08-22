@@ -1,10 +1,10 @@
 package com.example.PowerToolStore.service;
 
 import com.example.PowerToolStore.constant.StockOperation;
-import com.example.PowerToolStore.dto.request.ProductCreateRequest;
-import com.example.PowerToolStore.dto.request.ProductStatusUpdateRequest;
-import com.example.PowerToolStore.dto.request.ProductUpdateRequest;
-import com.example.PowerToolStore.dto.request.StockUpdateRequest;
+import com.example.PowerToolStore.dto.request.product.ProductCreateRequest;
+import com.example.PowerToolStore.dto.request.product.ProductStatusUpdateRequest;
+import com.example.PowerToolStore.dto.request.product.ProductUpdateRequest;
+import com.example.PowerToolStore.dto.request.product.StockUpdateRequest;
 import com.example.PowerToolStore.dto.response.ProductResponse;
 import com.example.PowerToolStore.entity.Category;
 import com.example.PowerToolStore.entity.Product;

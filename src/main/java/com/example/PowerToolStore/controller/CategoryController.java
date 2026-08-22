@@ -1,8 +1,8 @@
 package com.example.PowerToolStore.controller;
 
 import com.example.PowerToolStore.constant.MdcConstant;
-import com.example.PowerToolStore.dto.request.CategoryCreateRequest;
-import com.example.PowerToolStore.dto.request.CategoryUpdateRequest;
+import com.example.PowerToolStore.dto.request.category.CategoryCreateRequest;
+import com.example.PowerToolStore.dto.request.category.CategoryUpdateRequest;
 import com.example.PowerToolStore.dto.response.CategoryResponse;
 import com.example.PowerToolStore.dto.response.ApiResponse;
 import com.example.PowerToolStore.dto.response.GenericResponse;
@@ -15,7 +15,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.geom.GeneralPath;
 import java.util.List;
 
 @RestController

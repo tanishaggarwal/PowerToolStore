@@ -1,8 +1,7 @@
-package com.example.PowerToolStore.dto.request;
+package com.example.PowerToolStore.dto.request.product;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 public class ProductStatusUpdateRequest {

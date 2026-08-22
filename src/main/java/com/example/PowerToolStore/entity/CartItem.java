@@ -3,35 +3,35 @@ package com.example.PowerToolStore.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Setter
 @Getter
+@Builder
+@AllArgsConstructor
 @Table(name="cartItems")
 public class CartItem {
     @Setter(AccessLevel.NONE)
-    @NotNull
+//    @NotNull
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long cartItemId;
 
-    @NotNull
+//    @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="cart_id")
     private Cart cart;
 
-    @NotNull
+//    @NotNull
 //    @Column(nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="product_id", nullable = false)
     private Product product;
 
-    @NotNull
+//    @NotNull
     @Column(nullable = false)
-    @Min(0)
+//    @Min(0)
     private Integer quantity;
 
     protected CartItem(){}

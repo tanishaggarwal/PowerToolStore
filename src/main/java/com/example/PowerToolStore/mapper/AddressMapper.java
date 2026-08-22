@@ -1,7 +1,7 @@
 package com.example.PowerToolStore.mapper;
 
-import com.example.PowerToolStore.dto.request.AddressCreateRequest;
-import com.example.PowerToolStore.dto.request.AddressUpdateRequest;
+import com.example.PowerToolStore.dto.request.address.AddressCreateRequest;
+import com.example.PowerToolStore.dto.request.address.AddressUpdateRequest;
 import com.example.PowerToolStore.dto.response.AddressResponse;
 import com.example.PowerToolStore.entity.Address;
 import com.example.PowerToolStore.entity.User;

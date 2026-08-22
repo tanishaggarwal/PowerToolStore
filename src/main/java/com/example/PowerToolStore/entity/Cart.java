@@ -2,9 +2,7 @@ package com.example.PowerToolStore.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
@@ -13,16 +11,17 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
 @Table(name="carts")
 public class Cart {
     @Setter(AccessLevel.NONE)
-    @NotNull
+//    @NotNull
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long cartId;
 
-    @NotNull
-//    @Column(nullable = false, unique = true)
+//    @NotNull
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id", nullable = false, unique = true)
     private User user;

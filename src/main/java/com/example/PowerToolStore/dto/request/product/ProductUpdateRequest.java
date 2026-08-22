@@ -1,10 +1,7 @@
-package com.example.PowerToolStore.dto.request;
+package com.example.PowerToolStore.dto.request.product;
 
 import jakarta.validation.constraints.*;
 import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.validator.constraints.URL;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 

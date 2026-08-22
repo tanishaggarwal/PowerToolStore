@@ -1,4 +1,4 @@
-package com.example.PowerToolStore.dto.request;
+package com.example.PowerToolStore.dto.request.user;
 
 import com.example.PowerToolStore.constant.UserRole;
 import jakarta.validation.constraints.Email;

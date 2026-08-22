@@ -1,21 +1,14 @@
-package com.example.PowerToolStore.dto.request;
+package com.example.PowerToolStore.dto.request.address;
 
-import com.example.PowerToolStore.entity.User;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.UpdateTimestamp;
-
-import java.time.LocalDateTime;
 
 @Getter
-public class AddressUpdateRequest {
+public class AddressCreateRequest {
     @NotNull
-    private Long addressId;
+    private Long userId;
 
     @NotBlank
     @Pattern(regexp = "^[1-9][0-9]{5}$", message = "Enter a valid 6 digit pin-code")

@@ -1,18 +1,10 @@
-package com.example.PowerToolStore.dto.request;
+package com.example.PowerToolStore.dto.request.product;
 
-import com.example.PowerToolStore.entity.Category;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.validator.constraints.URL;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 @Getter
 public class ProductCreateRequest {

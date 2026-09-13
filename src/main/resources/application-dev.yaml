@@ -3,12 +3,18 @@ spring:
     name: PowerToolStore
 
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: jdbc:postgresql://ep-old-morning-aurvwmgx-pooler.c-10.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+    username: neondb_owner
+    password: npg_XG0xDJ1nENoS
 
   jpa:
     hibernate:
       ddl-auto: update
 
     show-sql: true
+
+cloudinary:
+  url: cloudinary://<API_KEY>:<API_SECRET>@<CLOUD_NAME>
+  api-key: 719275526571398
+  api-secret: W9IVFXHoTPGD3daee-XIaj7GGCA
+  cloud-name: gw8zkwf7

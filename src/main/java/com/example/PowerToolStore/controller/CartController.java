@@ -1,20 +1,28 @@
 package com.example.PowerToolStore.controller;
 
+import org.slf4j.MDC;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.example.PowerToolStore.constant.MdcConstant;
 import com.example.PowerToolStore.dto.request.cart.AddToCartRequest;
 import com.example.PowerToolStore.dto.request.cart.DropCartItemRequest;
 import com.example.PowerToolStore.dto.request.cart.UpdateCartItemQuantityRequest;
-import com.example.PowerToolStore.dto.request.cart.ViewCartRequest;
 import com.example.PowerToolStore.dto.response.ApiResponse;
 import com.example.PowerToolStore.dto.response.CartItemResponse;
 import com.example.PowerToolStore.dto.response.CartResponse;
 import com.example.PowerToolStore.dto.response.GenericResponse;
 import com.example.PowerToolStore.service.CartService;
+
 import jakarta.validation.Valid;
-import org.slf4j.MDC;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/cart")
@@ -32,7 +40,7 @@ public class CartController {
     {
         return new ResponseEntity<>(
                 ApiResponse.<CartResponse>builder()
-                        .data(cartService.viewCart((request)))
+                        .data(cartService.viewCart((userId)))
                         .requestId(MDC.get(MdcConstant.REQUEST_ID))
                         .build(),
                 HttpStatus.OK

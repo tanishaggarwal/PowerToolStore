@@ -27,8 +27,8 @@ public class CartController {
         this.cartService = cartService;
     }
 
-    @GetMapping("/view")
-    public ResponseEntity<ApiResponse<CartResponse>> viewCart(@Valid @RequestBody ViewCartRequest request)
+    @GetMapping("/{userId}")
+    public ResponseEntity<ApiResponse<CartResponse>> viewCart(@PathVariable Long userId)
     {
         return new ResponseEntity<>(
                 ApiResponse.<CartResponse>builder()

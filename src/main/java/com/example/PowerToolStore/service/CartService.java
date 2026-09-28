@@ -116,9 +116,9 @@ public class CartService {
     // TODO - Extract userId from SecurityContextHolder & remove it from request
 
     @Transactional(readOnly = true)
-    public CartResponse viewCart(ViewCartRequest request)
+    public CartResponse viewCart(Long userId)
     {
-        Optional<Cart> cart = cartRepository.findByUser_UserId(request.getUserId());
+        Optional<Cart> cart = cartRepository.findByUser_UserId(userId);
         if(cart.isPresent())
         {
             BigDecimal cartAmt = BigDecimal.valueOf(0);
